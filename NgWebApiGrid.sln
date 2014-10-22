@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NgWebApiGrid.Web", "NgWebApiGrid.Web\NgWebApiGrid.Web.csproj", "{2BE722D4-AC9F-4AB2-A4CD-AC2EED77D0FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NgWebApiGrid.Web.Tests", "NgWebApiGrid.Web.Tests\NgWebApiGrid.Web.Tests.csproj", "{7998B0C5-47AE-4AD1-A276-4AF2542E9174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NgWebApiGrid.Data", "NgWebApiGrid.Data\NgWebApiGrid.Data.csproj", "{735CFEF6-99AE-46BD-9F13-9EF056ABF20F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BE722D4-AC9F-4AB2-A4CD-AC2EED77D0FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BE722D4-AC9F-4AB2-A4CD-AC2EED77D0FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BE722D4-AC9F-4AB2-A4CD-AC2EED77D0FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BE722D4-AC9F-4AB2-A4CD-AC2EED77D0FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7998B0C5-47AE-4AD1-A276-4AF2542E9174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7998B0C5-47AE-4AD1-A276-4AF2542E9174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7998B0C5-47AE-4AD1-A276-4AF2542E9174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7998B0C5-47AE-4AD1-A276-4AF2542E9174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{735CFEF6-99AE-46BD-9F13-9EF056ABF20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735CFEF6-99AE-46BD-9F13-9EF056ABF20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735CFEF6-99AE-46BD-9F13-9EF056ABF20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735CFEF6-99AE-46BD-9F13-9EF056ABF20F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
