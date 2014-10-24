@@ -19,9 +19,13 @@ namespace NgWebApiGrid.Web.Controllers
         private readonly SchoolContext db = new SchoolContext();
 
         // GET: api/Students
-        public List<Student> GetStudents()
+        public StudentContainer GetStudents()
         {
-            return db.Students.ToList();
+            var students = db.Students.ToList();
+
+            var studentsContainer = new StudentContainer { Students = students, RecordCount = students.Count() };
+
+            return studentsContainer;
         }
 
         // GET: api/Students/5
@@ -116,5 +120,12 @@ namespace NgWebApiGrid.Web.Controllers
         {
             return db.Students.Count(e => e.ID == id) > 0;
         }
+    }
+
+    public class StudentContainer
+    {
+        public List<Student> Students { get; set; }
+        public int RecordCount
+        { get; set; }
     }
 }

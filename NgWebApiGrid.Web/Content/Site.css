@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 70px;
     padding-bottom: 20px;
 }
 
@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.top-buffer { margin-top:20px; }
+
+.button-top-buffer { margin-top: 5px;}
