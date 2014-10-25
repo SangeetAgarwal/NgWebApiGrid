@@ -19,11 +19,17 @@ namespace NgWebApiGrid.Web.Controllers
         private readonly SchoolContext db = new SchoolContext();
 
         // GET: api/Students
-        public StudentContainer GetStudents()
+        public StudentsContainer GetStudents()
         {
-            var students = db.Students.ToList();
+            var queryStringParams = Request.RequestUri.ParseQueryString();
+            var pageNumber = Convert.ToInt32(queryStringParams["currentPage"]);
+            var pageSize = Convert.ToInt32(queryStringParams["recordsPerPage"]);
+            var begin = (pageNumber - 1) * pageSize;
 
-            var studentsContainer = new StudentContainer { Students = students, RecordCount = students.Count() };
+            var totalNumberOfRecords = db.Students.Count();
+            var students = db.Students.OrderBy(r=>r.ID).Skip(begin).Take(pageSize).ToList();
+
+            var studentsContainer = new StudentsContainer { Students = students, RecordCount = totalNumberOfRecords };
 
             return studentsContainer;
         }
@@ -122,7 +128,7 @@ namespace NgWebApiGrid.Web.Controllers
         }
     }
 
-    public class StudentContainer
+    public class StudentsContainer
     {
         public List<Student> Students { get; set; }
         public int RecordCount

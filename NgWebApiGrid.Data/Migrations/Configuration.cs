@@ -34,7 +34,24 @@ namespace NgWebApiGrid.Data.Migrations
             new Student{FirstMidName="Kan",LastName="Chan",EnrollmentDate=DateTime.Parse("2002-09-01")},
             new Student{FirstMidName="David",LastName="Stosky",EnrollmentDate=DateTime.Parse("2001-09-01")},
             new Student{FirstMidName="Lauda",LastName="Chris",EnrollmentDate=DateTime.Parse("2003-09-01")},
-            new Student{FirstMidName="Cheeko",LastName="Madus",EnrollmentDate=DateTime.Parse("2005-09-01")}
+            new Student{FirstMidName="Cheeko",LastName="Madus",EnrollmentDate=DateTime.Parse("2005-09-01")},
+
+             new Student{FirstMidName="Datson",LastName="Palton",EnrollmentDate=DateTime.Parse("2005-09-01")},
+            new Student{FirstMidName="Zakky",LastName="Chan",EnrollmentDate=DateTime.Parse("2002-09-01")},
+            new Student{FirstMidName="Arbele",LastName="Dan",EnrollmentDate=DateTime.Parse("2003-09-01")},
+            new Student{FirstMidName="Dalton",LastName="Evan",EnrollmentDate=DateTime.Parse("2002-09-01")},
+            new Student{FirstMidName="Joshua",LastName="Bigit",EnrollmentDate=DateTime.Parse("2002-09-01")},
+            new Student{FirstMidName="Elizabeth",LastName="Judge",EnrollmentDate=DateTime.Parse("2001-09-01")},
+            new Student{FirstMidName="Peter",LastName="Theory",EnrollmentDate=DateTime.Parse("2003-09-01")},
+            new Student{FirstMidName="Ninol",LastName="Olivia",EnrollmentDate=DateTime.Parse("2005-09-01")},
+            new Student{FirstMidName="Newton",LastName="Isaack",EnrollmentDate=DateTime.Parse("2005-09-01")},
+            new Student{FirstMidName="Sasha",LastName="Brain",EnrollmentDate=DateTime.Parse("2007-09-01")},
+            new Student{FirstMidName="Aliba",LastName="Zate",EnrollmentDate=DateTime.Parse("2003-09-01")},
+            new Student{FirstMidName="Raman",LastName="Rastogi",EnrollmentDate=DateTime.Parse("2003-07-01")},
+            new Student{FirstMidName="Chan",LastName="Doodle",EnrollmentDate=DateTime.Parse("2009-09-01")},
+            new Student{FirstMidName="Andy",LastName="Sam",EnrollmentDate=DateTime.Parse("2005-09-01")},
+            new Student{FirstMidName="Sasson",LastName="Saca",EnrollmentDate=DateTime.Parse("2007-08-01")},
+            new Student{FirstMidName="Cito",LastName="Moran",EnrollmentDate=DateTime.Parse("2005-07-01")}
            
             };
 

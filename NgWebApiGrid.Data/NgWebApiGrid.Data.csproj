@@ -46,9 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201410220400049_Initial.cs" />
-    <Compile Include="Migrations\201410220400049_Initial.Designer.cs">
-      <DependentUpon>201410220400049_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201410250229130_Initial-Seed.cs" />
+    <Compile Include="Migrations\201410250229130_Initial-Seed.Designer.cs">
+      <DependentUpon>201410250229130_Initial-Seed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
@@ -62,8 +62,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201410220400049_Initial.resx">
-      <DependentUpon>201410220400049_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201410250229130_Initial-Seed.resx">
+      <DependentUpon>201410250229130_Initial-Seed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
