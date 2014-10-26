@@ -1,45 +1,45 @@
 ﻿<div class="row top-buffer">
-    <table class="table table-bordered table-striped table-responsive">
-        <thead>
-            <tr>
-                <th>
-                </th>
-                <th>
-                </th>
-                <th>
-                </th>
-                <th>
-                    Last Name
-                </th>
-                <th>
-                    First Name
-                </th>
-                <th>
-                    Date of Enrollment
-                </th>
+  <table class="table table-bordered table-striped table-responsive">
+    <thead>
+      <tr>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+          Last Name
+        </th>
+        <th>
+          First Name
+        </th>
+        <th>
+          Date of Enrollment
+        </th>
 
-            </tr>
-        </thead>
-        <tbody data-ng-repeat="i in data">
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <textarea class="form-control" style="width: 300px;height: 65px" ng-model="i.lastName"></textarea>
-                </td>
-                <td>
-                    <textarea class="form-control" style="width: 300px;height: 65px" ng-model="i.firstMidName"></textarea>
-                </td>
-                <td>
-                    <input type="text" class="form-control" style="width: 150px;height: 65px" ng-model="i.enrollmentDate" />
-                </td>
-            </tr>
+      </tr>
+    </thead>
+    <tbody data-ng-repeat="i in data">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <textarea class="form-control" style="width: 300px;height: 65px" ng-model="i.lastName"></textarea>
+        </td>
+        <td>
+          <textarea class="form-control" style="width: 300px;height: 65px" ng-model="i.firstMidName"></textarea>
+        </td>
+        <td>
+          <input type="text" class="form-control" style="width: 150px;height: 65px" ng-model="i.enrollmentDate" />
+        </td>
+      </tr>
 
-        </tbody>
-    </table>
-  
-  <pagination data-total-items="totalItems" ng-model="currentPage" data-max-size="NumberOfPageButtons" class=" pagination-sm" data-boundary-links="true" data-rotate="false" ng-change="pageChanged()" data-items-per-page="recordsPerPage"></pagination>
+    </tbody>
+  </table>
+
+  <span data-pagination data-total-items="totalItems" data-ng-model="currentPage" data-max-size="NumberOfPageButtons" class=" pagination-sm" data-boundary-links="true" data-rotate="false" data-ng-change="pageChanged()" data-items-per-page="recordsPerPage"></span>
 
 
 </div>

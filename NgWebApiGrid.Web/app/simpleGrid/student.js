@@ -1,4 +1,4 @@
-﻿angular.module('ngWebApiGrid.student', ['ngRoute', 'ui.bootstrap'])
+﻿angular.module('ngWebApiGrid.student', ['ngRoute', 'ui.bootstrap', 'chieffancypants.loadingBar'])
     .config(["$routeProvider", function($routeProvider) {
         $routeProvider.when("/", {
             controller: "studentCtrl",
