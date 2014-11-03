@@ -27,7 +27,18 @@ namespace NgWebApiGrid.Web.Controllers
             var begin = (pageNumber - 1) * pageSize;
 
             var totalNumberOfRecords = db.Students.Count();
-            var students = db.Students.OrderBy(r=>r.ID).Skip(begin).Take(pageSize).ToList();
+            var results = db.Students.OrderBy(r => r.ID).Skip(begin).Take(pageSize).ToList();
+
+            var students =
+                results.Select(
+                    r =>
+                        new Student
+                        {
+                            EnrollmentDate = r.EnrollmentDate,
+                            FirstMidName = r.FirstMidName,
+                            LastName = r.LastName,
+                            ID = r.ID
+                        }).ToList();
 
             var studentsContainer = new StudentsContainer { Students = students, RecordCount = totalNumberOfRecords };
 

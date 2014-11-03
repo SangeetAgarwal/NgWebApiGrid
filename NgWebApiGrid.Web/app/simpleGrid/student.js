@@ -1,5 +1,5 @@
 ﻿angular.module('ngWebApiGrid.student', ['ngRoute', 'ui.bootstrap', 'chieffancypants.loadingBar'])
-    .config(["$routeProvider", function($routeProvider) {
+    .config(["$routeProvider", function ($routeProvider) {
         $routeProvider.when("/", {
             controller: "studentCtrl",
             templateUrl: "app/simpleGrid/students.tpl.html"
@@ -7,20 +7,20 @@
 
         $routeProvider.otherwise("/");
     }])
-    .factory("dataService", ["$http", "$q", function($http, $q) {
+    .factory("dataService", ["$http", "$q", function ($http, $q) {
 
         var _students = [];
 
         var deferred = $q.defer();
 
-        var _getStudents = function(options) {
+        var _getStudents = function (options) {
 
             $http.get("api/StudentsApi?currentPage=" + options.currentPage + "&" + "recordsPerPage=" + options.recordsPerPage)
-                .then(function(result) {
+                .then(function (result) {
                     angular.copy(result.data.students, _students);
                     deferred.resolve(result.data.recordCount);
                 },
-                    function() {
+                    function () {
                         deferred.reject();
                     });
 
@@ -33,18 +33,18 @@
         };
     }])
     .controller("studentCtrl", ["$scope", "dataService",
-        function($scope, dataService) {
+        function ($scope, dataService) {
             $scope.data = dataService.students;
 
             $scope.totalItems = 0;
             $scope.currentPage = 1;
             $scope.maxSize = 5;
             $scope.recordsPerPage = 5;
-            $scope.NumberOfPageButtons = 5;
-            
+            $scope.numberOfPageButtons = 5;
+
             getData($scope, dataService);
 
-            $scope.pageChanged = function() {
+            $scope.pageChanged = function () {
 
                 getData($scope, dataService);
             };
@@ -55,19 +55,19 @@
 
 var getData = function ($scope, dataService) {
 
-    var options = {        
-        
+    var options = {
+        currentPage: $scope.currentPage,
+        recordsPerPage: $scope.recordsPerPage,
     };
-    options.currentPage = $scope.currentPage;
-    options.recordsPerPage = $scope.recordsPerPage;
+
 
     dataService.getStudents(options)
     .then(function (totalItems) {
-        
+
         $scope.totalItems = totalItems;
     },
     function () {
-        
+
         alert("an error occured: unable to get data");
     });
 
