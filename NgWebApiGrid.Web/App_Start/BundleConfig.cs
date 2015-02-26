@@ -20,7 +20,7 @@ namespace NgWebApiGrid.Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap.min.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -31,8 +31,9 @@ namespace NgWebApiGrid.Web
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/angular.js",
                 "~/Scripts/angular-route.js",
+                "~/Scripts/angular-ui/ui-bootstrap.js",
                 "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
-                "~/Scripts/angular-local-storage.js",
+                "~/Scripts/angular-local-storage.min.js",
                 "~/Scripts/angular-animate.js",
                 "~/Scripts/loading-bar.js",
                 "~/app/app.js",

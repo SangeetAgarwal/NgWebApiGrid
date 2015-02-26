@@ -19,15 +19,42 @@ namespace NgWebApiGrid.Web.Controllers
         private readonly SchoolContext db = new SchoolContext();
 
         // GET: api/Students
-        public StudentsContainer GetStudents()
+        public StudentsContainer GetStudents(int currentPage, int recordsPerPage, string sortKey, string sortOrder)
         {
-            var queryStringParams = Request.RequestUri.ParseQueryString();
-            var pageNumber = Convert.ToInt32(queryStringParams["currentPage"]);
-            var pageSize = Convert.ToInt32(queryStringParams["recordsPerPage"]);
+
+            var pageNumber = currentPage;
+            var pageSize = recordsPerPage;
             var begin = (pageNumber - 1) * pageSize;
 
             var totalNumberOfRecords = db.Students.Count();
-            var results = db.Students.OrderBy(r => r.ID).Skip(begin).Take(pageSize).ToList();
+            List<Student> results = null;
+            switch (sortOrder)
+            {
+                case "ASC":
+                    switch (sortKey)
+                    {
+                        case "lastName":
+                            results = db.Students.OrderBy(r => r.LastName).Skip(begin).Take(pageSize).ToList();
+                            break;
+                        case "firstName":
+                            results = db.Students.OrderBy(r => r.FirstMidName).Skip(begin).Take(pageSize).ToList();  
+                            break;
+                    }
+                    break;
+                case "DESC":
+                    switch (sortKey)
+                    {
+                        case "lastName":
+                            results = db.Students.OrderByDescending(r => r.LastName).Skip(begin).Take(pageSize).ToList();
+                            break;
+                        case "firstName":
+                            results = db.Students.OrderByDescending(r => r.FirstMidName).Skip(begin).Take(pageSize).ToList();
+                            break;
+                    }
+                    break; ;
+            }
+
+            
 
             var students =
                 results.Select(

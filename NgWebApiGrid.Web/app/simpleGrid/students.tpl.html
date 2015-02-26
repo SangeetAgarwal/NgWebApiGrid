@@ -8,11 +8,17 @@
         </th>
         <th>
         </th>
+
         <th>
-          Last Name
+          <a href="#" ng-click="sort('lastName')" target="_self">Last Name</a>
+          <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='lastName'}"></i>
+          <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='lastName'}"></i>
+
         </th>
         <th>
-          First Name
+          <a href="#" ng-click="sort('firstName')" target="_self">First Name</a>
+          <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='firstName'}"></i>
+          <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='firstName'}"></i>
         </th>
         <th>
           Date of Enrollment
