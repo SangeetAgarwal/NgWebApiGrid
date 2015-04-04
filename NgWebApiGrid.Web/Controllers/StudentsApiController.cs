@@ -19,14 +19,14 @@ namespace NgWebApiGrid.Web.Controllers
         private readonly SchoolContext db = new SchoolContext();
 
         // GET: api/Students
-        public StudentsContainer GetStudents(int currentPage, int recordsPerPage, string sortKey, string sortOrder)
+        public StudentsContainer GetStudents(int currentPage, int recordsPerPage, string sortKey, string sortOrder, string searchfor)
         {
 
             var pageNumber = currentPage;
             var pageSize = recordsPerPage;
             var begin = (pageNumber - 1) * pageSize;
 
-            var totalNumberOfRecords = db.Students.Count();
+            var totalNumberOfRecords = db.Students.Count(r => searchfor == "null" || r.LastName.Contains(searchfor) || r.FirstMidName.Contains(searchfor));
             List<Student> results = null;
             switch (sortOrder)
             {
@@ -34,10 +34,10 @@ namespace NgWebApiGrid.Web.Controllers
                     switch (sortKey)
                     {
                         case "lastName":
-                            results = db.Students.OrderBy(r => r.LastName).Skip(begin).Take(pageSize).ToList();
+                            results = db.Students.Where(r => searchfor == "null" || r.LastName.Contains(searchfor) || r.FirstMidName.Contains(searchfor)).OrderBy(r => r.LastName).Skip(begin).Take(pageSize).ToList();
                             break;
                         case "firstName":
-                            results = db.Students.OrderBy(r => r.FirstMidName).Skip(begin).Take(pageSize).ToList();  
+                            results = db.Students.Where(r => searchfor == "null" || r.LastName.Contains(searchfor) || r.FirstMidName.Contains(searchfor)).OrderBy(r => r.FirstMidName).Skip(begin).Take(pageSize).ToList();
                             break;
                     }
                     break;
@@ -45,16 +45,16 @@ namespace NgWebApiGrid.Web.Controllers
                     switch (sortKey)
                     {
                         case "lastName":
-                            results = db.Students.OrderByDescending(r => r.LastName).Skip(begin).Take(pageSize).ToList();
+                            results = db.Students.Where(r => searchfor == "null" || r.LastName.Contains(searchfor) || r.FirstMidName.Contains(searchfor)).OrderByDescending(r => r.LastName).Skip(begin).Take(pageSize).ToList();
                             break;
                         case "firstName":
-                            results = db.Students.OrderByDescending(r => r.FirstMidName).Skip(begin).Take(pageSize).ToList();
+                            results = db.Students.Where(r => searchfor == "null" || r.LastName.Contains(searchfor) || r.FirstMidName.Contains(searchfor)).OrderByDescending(r => r.FirstMidName).Skip(begin).Take(pageSize).ToList();
                             break;
                     }
-                    break; ;
+                    break;
             }
 
-            
+
 
             var students =
                 results.Select(

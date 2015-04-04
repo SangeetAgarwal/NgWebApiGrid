@@ -11,13 +11,13 @@
 
         var _students = [];
 
-        var deferred = $q.defer();
-
         var _getStudents = function (options) {
+
+            var deferred = $q.defer();
 
             $http.get("api/StudentsApi?currentPage=" + options.currentPage + "&" +
                 "recordsPerPage=" + options.recordsPerPage + "&" +
-                "sortKey=" + options.sortKeyOrder.key + "&" + "sortOrder=" + options.sortKeyOrder.order)
+                "sortKey=" + options.sortKeyOrder.key + "&" + "sortOrder=" + options.sortKeyOrder.order + "&searchfor=" + options.searchfor)
                 .then(function (result) {
                     angular.copy(result.data.students, _students);
                     deferred.resolve(result.data.recordCount);
@@ -36,20 +36,23 @@
     }])
     .controller("studentCtrl", ["$scope", "dataService", "localStorageService",
         function ($scope, dataService, localStorageService) {
-            
-            $scope.data = dataService.students;
 
             var sortKeyOrder = {
                 key: '',
                 order: '',
             };
-            
+
+            if (localStorageService.get("searchfor") !== undefined) {
+                $scope.searchfor = localStorageService.get("searchfor");
+            }
+
+
             $scope.totalItems = 0;
             $scope.currentPage = 1;
             $scope.maxSize = 5;
             $scope.recordsPerPage = 5;
             $scope.numberOfPageButtons = 5;
-          
+
 
             getData($scope, dataService, localStorageService);
 
@@ -67,12 +70,12 @@
                     localStorageService.set('sortKeyOrder', sortKeyOrder);
 
                 } else {
-                    
+
                     sortKeyOrder = {
                         key: col,
                         order: 'ASC',
                     };
-                    
+
                     localStorageService.set('sortKeyOrder', sortKeyOrder);
 
                 }
@@ -83,13 +86,24 @@
                 getData($scope, dataService, localStorageService);
             };
 
+            $scope.search = function (searchfor) {
+
+                if (searchfor === undefined) {
+                    $scope.searchfor = "";
+                }
+
+                localStorageService.set("searchfor", searchfor);
+
+                getData($scope, dataService, localStorageService);
+            }
+
 
         }]);
 
 
 var getData = function ($scope, dataService, localStorageService) {
 
-
+    $scope.data = dataService.students;
     var sortKeyOrder = localStorageService.get('sortKeyOrder');
 
     if (sortKeyOrder == null) {
@@ -98,20 +112,23 @@ var getData = function ($scope, dataService, localStorageService) {
             order: 'ASC',
         };
     }
-    
+
+    var searchfor = localStorageService.get('searchfor');
+
     $scope.sortKeyOrder = sortKeyOrder;
 
     var options = {
-        
+
         currentPage: $scope.currentPage,
         recordsPerPage: $scope.recordsPerPage,
         sortKeyOrder: sortKeyOrder,
+        searchfor: searchfor,
+
     };
 
 
     dataService.getStudents(options)
     .then(function (totalItems) {
-
         $scope.totalItems = totalItems;
     },
     function () {
