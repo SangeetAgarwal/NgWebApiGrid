@@ -1,5 +1,16 @@
-﻿<div class="row">
-    <div class="col-sm-3 col-md-3">
+﻿
+<div class="row">
+    <div class="col-xs-4 col-sm-3 col-md-3">
+        <a type="button" class="btn btn-primary" href="#/new-student">Create a new student</a>
+    </div>
+</div>
+
+<div class="row">
+   <div style="margin-bottom: 15px"></div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4 col-sm-3 col-md-3">
         <div class="input-group">
             <input type="search" class="form-control" placeholder="Search for..." ng-model="searchfor">
             <div class="input-group-btn">
@@ -10,53 +21,57 @@
 </div>
 
 <div class="row top-buffer">
-  <table class="table table-bordered table-striped table-responsive">
-    <thead>
-      <tr>
-        <th>
-        </th>
-        <th>
-        </th>
-        <th>
-        </th>
+    <table class="table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>
+                </th>
+                <th>
+                </th>
+                <th>
+                </th>
 
-        <th>
-          <a href="#" ng-click="sort('lastName')" target="_self">Last Name</a>
-          <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='lastName'}"></i>
-          <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='lastName'}"></i>
+                <th>
+                    <a href="#" ng-click="sort('lastName')" target="_self">Last Name</a>
+                    <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='lastName'}"></i>
+                    <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='lastName'}"></i>
 
-        </th>
-        <th>
-          <a href="#" ng-click="sort('firstName')" target="_self">First Name</a>
-          <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='firstName'}"></i>
-          <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='firstName'}"></i>
-        </th>
-        <th>
-          Date of Enrollment
-        </th>
+                </th>
+                <th>
+                    <a href="#" ng-click="sort('firstName')" target="_self">First Name</a>
+                    <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='firstName'}"></i>
+                    <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='firstName'}"></i>
+                </th>
+                <th>
+                    Date of Enrollment
+                </th>
 
-      </tr>
-    </thead>
-    <tbody data-ng-repeat="i in data">
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-          <textarea class="form-control" style="width: 300px;height: 65px" ng-model="i.lastName"></textarea>
-        </td>
-        <td>
-          <textarea class="form-control" style="width: 300px;height: 65px" ng-model="i.firstMidName"></textarea>
-        </td>
-        <td>
-          <input type="text" class="form-control" style="width: 150px;height: 65px" ng-model="i.enrollmentDate" />
-        </td>
-      </tr>
+            </tr>
+        </thead>
+        <tbody data-ng-repeat="i in data">
+            <tr>
+                <td></td>
+                <td>
+                    <save-button text="Save" action="save(i.id)"></save-button>
+                </td>
+                <td>
+                    <delete-button cssclass="btn btn-danger button-top-buffer" text="Delete" action="delete(i.id)"></delete-button>
+                </td>
+                <td>
+                    <textarea class="form-control" style="width: 300px;height: 65px" ng-model="i.lastName"></textarea>
+                </td>
+                <td>
+                    <textarea class="form-control" style="width: 300px;height: 65px" ng-model="i.firstMidName"></textarea>
+                </td>
+                <td>
+                    <input type="text" class="form-control" style="width: 150px;height: 65px" ng-model="i.enrollmentDate" />
+                </td>
+            </tr>
 
-    </tbody>
-  </table>
+        </tbody>
+    </table>
 
-  <span data-pagination data-total-items="totalItems" data-ng-model="currentPage" data-max-size="numberOfPageButtons" class=" pagination-sm" data-boundary-links="true" data-rotate="false" data-ng-change="pageChanged()" data-items-per-page="recordsPerPage"></span>
+    <span data-pagination data-total-items="totalItems" data-ng-model="currentPage" data-max-size="numberOfPageButtons" class=" pagination-sm" data-boundary-links="true" data-rotate="false" data-ng-change="pageChanged()" data-items-per-page="recordsPerPage"></span>
 
 
 </div>

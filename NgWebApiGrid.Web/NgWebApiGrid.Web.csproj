@@ -183,6 +183,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\simpleGrid\modalConfirmation.tpl.html" />
+    <Content Include="app\simpleGrid\newStudent.tpl.html" />
     <Content Include="app\simpleGrid\student.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
